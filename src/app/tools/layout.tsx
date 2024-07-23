@@ -17,7 +17,7 @@ export default async function ToolLayout({ children }: { children: React.ReactNo
             <Title order={3}>tools</Title>
         </Flex>
         <Flex gap={0} flex={1}>
-            <SideNav listTools={listPromp.map(v => ({ title: v.title, link: "/tools/" + v.id }))} />
+            <SideNav listTools={listPromp.map((v: any) => ({ title: v.title, link: "/tools/" + v.id }))} />
             <Stack flex={1}>
                 {children}
             </Stack>
