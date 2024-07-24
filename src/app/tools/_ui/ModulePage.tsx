@@ -15,12 +15,12 @@ export function ModulePage({ title, id }: { title: string, id: string }) {
         defaultValue: true
     })
     const [content, setContent] = useLocalStorage({
-        key: "module_content",
+        key: "module_content_"+id,
         defaultValue: ""
     })
 
     const [result, setResult] = useLocalStorage({
-        key: "module_result",
+        key: "module_result_"+id,
         defaultValue: ""
     })
 

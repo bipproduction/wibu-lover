@@ -110,7 +110,9 @@ function ListPrompt({ reload }: { reload: number }) {
     }, [reload])
 
     async function loadListPrompt() {
-        const res = await fetch("/admin/api/prompt-list")
+        const res = await fetch("/admin/api/prompt-list", {
+            cache: "no-cache"
+        })
         if (res.ok) {
             return setListPrompt(await res.json())
         }
@@ -195,5 +197,15 @@ function ButtonDelete({ id, onSuccess }: { id: string, onSuccess: () => void }) 
                 </Group>
             </Stack>
         </Modal>
+    </Stack>
+}
+
+export function EditPrompt({ id }: { id: string }) {
+    const [loading, setLoading] = useState(false)
+    const [alert, setAlert] = useAlert()
+    const [form, setForm] = useState<any>(null)
+
+    return <Stack>
+
     </Stack>
 }
