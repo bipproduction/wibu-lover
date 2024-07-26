@@ -1,27 +1,61 @@
 {
     "name": "Wibu Lover App",
+    "display_override": "standalone",
+    "protocol_handlers": [
+        {
+            "protocol": "wibu",
+            "url": "wibu://"
+        }
+    ],
     "short_name": "wibu lover",
+    "description": "Wibu lover app",
+    "screenshots": [
+        {
+            "src": "/icons/icon-512x512.png",
+            "sizes": "1280x720",
+            "type": "image/png"
+        }
+    ],
+    "shortcuts": [
+        {
+            "name": "Wibu",
+            "short_name": "wibu",
+            "description": "Wibu",
+            "url": "/",
+            "icons": [
+                {
+                    "src": "/icons/icon-512x512.png",
+                    "sizes": "1280x720",
+                    "type": "image/png"
+                }
+            ]
+        }
+    ],
+    "lang": "en-US",
+    "dir": "ltr",
+    "prefer_related_applications": false,
+    "related_applications": [],
     "icons": [
-      {
-        "src": "/icons/android-chrome-192x192.png",
-        "sizes": "192x192",
-        "type": "image/png",
-        "purpose": "any maskable"
-      },
-      {
-        "src": "/icons/android-chrome-384x384.png",
-        "sizes": "384x384",
-        "type": "image/png"
-      },
-      {
-        "src": "/icons/icon-512x512.png",
-        "sizes": "512x512",
-        "type": "image/png"
-      }
+        {
+            "src": "/icons/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icons/android-chrome-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
     ],
     "theme_color": "#FFFFFF",
     "background_color": "#FFFFFF",
     "start_url": "/",
     "display": "standalone",
     "orientation": "portrait"
-  }
+}
