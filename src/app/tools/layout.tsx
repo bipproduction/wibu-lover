@@ -1,15 +1,16 @@
 
-import { ActionIcon, Flex, Stack, Title } from "@mantine/core";
-import { useLocalStorage } from "@mantine/hooks";
-import { MdHome } from "react-icons/md";
+import { Flex, Stack, Title } from "@mantine/core";
+import { headers } from 'next/headers';
+import { userAgent } from 'next/server';
+import { LoadListPrompt } from "./_ui/LoadListPrompt";
 import { SideNav } from "./_ui/SideNav";
-import prisma from "@/lib/db/prisma";
 import { ToolsHomeButton } from "./_ui/ToolsHomeButton";
 
 export default async function ToolLayout({ children }: { children: React.ReactNode }) {
-    const listPromp = await prisma.promptEnginer.findMany()
 
+    const h = userAgent({headers: headers()}).engine
     return <Stack h={"100vh"} gap={0} w={"100%"} pos={"relative"}>
+        {/* {d.length} */}
         <Flex gap={"md"} p={"sm"} style={{
             borderBottom: "1px solid #d9d9d9"
         }}>
@@ -17,7 +18,9 @@ export default async function ToolLayout({ children }: { children: React.ReactNo
             <Title order={3}>tools</Title>
         </Flex>
         <Flex gap={0} flex={1}>
-            <SideNav listTools={listPromp.map((v: any) => ({ title: v.title, link: "/tools/" + v.id }))} />
+            <LoadListPrompt>
+                {(list) => <SideNav listData={list} />}
+            </LoadListPrompt>
             <Stack flex={1}>
                 {children}
             </Stack>

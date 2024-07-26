@@ -7,5 +7,5 @@ export default async function Page({ params }: { params: { module: string[] } })
     const id = params.module[0]
     const prompt = await prisma.promptEnginer.findUnique({ where: { id } })
     if (!prompt) return <Center><Stack>prompt not found</Stack></Center>
-    return <ModulePage title={prompt.title} id={id} />
+    return <ModulePage title={prompt.title} desc={prompt.desc} id={id} />
 }

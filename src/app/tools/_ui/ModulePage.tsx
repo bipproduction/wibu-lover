@@ -1,13 +1,13 @@
 'use client'
 import { useAlert } from "@/lib/state/alert";
-import { ActionIcon, Button, Flex, Stack, Textarea, Title } from "@mantine/core";
+import { ActionIcon, Button, Card, Flex, Stack, Text, Textarea, Title } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
 import _ from "lodash";
 import { useState } from "react";
 import { MdHorizontalRule, MdHorizontalSplit, MdRestore, MdVerticalSplit } from "react-icons/md";
 import MarkdownPreview from '@uiw/react-markdown-preview';
 
-export function ModulePage({ title, id }: { title: string, id: string }) {
+export function ModulePage({ title, id, desc }: { title: string, desc: string, id: string }) {
     const [loading, setLoading] = useState(false)
     const [alert, setAlert] = useAlert()
     const [isRow, setIsRow] = useLocalStorage({
@@ -75,15 +75,23 @@ export function ModulePage({ title, id }: { title: string, id: string }) {
         </Flex>
         <Flex flex={1} direction={isRow ? "row" : "column"}>
             <Stack flex={1} p={"xs"}>
-                <Title order={5}>content</Title>
-                <Textarea placeholder="content" autosize minRows={20} maxRows={60} value={content} onChange={(e) => setContent(e.currentTarget.value)} />
+            <Title order={5}>content</Title>
+                <Card withBorder bg={"yellow"}>
+                    <Text>{desc}</Text>
+                </Card>
+                <Textarea styles={{
+                    input: {
+                        backgroundColor: "whitesmoke",
+                        height: 500
+                    }
+                }} placeholder="content" minRows={20} maxRows={60} value={content} onChange={(e) => setContent(e.currentTarget.value)} />
                 <Flex justify={"end"}>
                     <Button loading={loading} onClick={onRun}>RUN</Button>
                 </Flex>
             </Stack>
             <Stack flex={1} p={"xs"} >
                 <Title order={5}>result</Title>
-                <MarkdownPreview source={result} style={{ padding: 16 }} />
+                <MarkdownPreview  source={result} style={{ padding: 16 }} />
             </Stack>
         </Flex>
     </Stack>

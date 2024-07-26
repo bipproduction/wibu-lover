@@ -1,3 +1,3 @@
 export default function AdminPage() {
-    return <main>ini adalah admin</main>
+    return <main>admin</main>
 }

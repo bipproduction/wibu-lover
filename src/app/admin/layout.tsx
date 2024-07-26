@@ -1,5 +1,5 @@
 'use client'
-import { ActionIcon, Anchor, Flex, Stack, Title } from "@mantine/core";
+import { ActionIcon, Anchor, Flex, Stack, Text, Title } from "@mantine/core";
 import { useSelectedLayoutSegments } from "next/navigation";
 import { MdHome } from "react-icons/md";
 
@@ -35,7 +35,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
             <Stack w={200} gap={0} p={"md"} style={{
                 borderRight: `0.5px solid ${color.border}`
             }} visibleFrom="md">
-                {listMenu.map((v, k) => <Anchor c={currentSegment === v.link ? "cyan" : "black"} key={k} href={v.link} >{v.title}</Anchor>)}
+                <Stack gap={0} flex={1}>
+                    {listMenu.map((v, k) => <Anchor c={currentSegment === v.link ? "cyan" : "black"} key={k} href={v.link} >{v.title}</Anchor>)}
+                </Stack>
+                <Text>v.1.0.1</Text>
             </Stack>
             <Stack flex={1} gap={0}>
                 {children}
